@@ -15,8 +15,8 @@
 
 ## Screenshots
 Here you can showcase screenshots of your project:
-![homepage](./screenshots/anasayfa.PNG)
-![discover](./screenshots/keşfet.PNG)
+![homepage](./screenshots/homepage.PNG)
+![discover](./screenshots/discover.PNG)
 
 
 
