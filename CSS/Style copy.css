@@ -1,0 +1,385 @@
+
+*{
+padding: 0;
+margin: 0;
+
+}
+
+.Navbar {
+    display: grid;
+    grid-template-columns: auto 1fr auto; /* Logo | Arama | Menü */
+    align-items: center;
+    height: 64px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    padding: 0 20px;
+}
+
+
+
+
+
+
+.Arkaplan{
+    left: 0;
+    right: 0;
+width: 100%;
+height: 100vh;
+object-fit: cover;
+position: absolute ;
+z-index: -1;
+
+
+}
+
+
+
+.baslık{
+
+    margin-left: 3px;
+}
+
+
+.Menu{
+
+display: flex;
+align-items: center;
+transform: scale(1);
+transition: transform .32 ease;
+}
+.Menu:hover li{
+transform: scale(1.2);
+
+
+}
+
+
+.Menu li{
+
+    margin-left: 30px;
+}
+
+.Menu a{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.Menu a:hover{
+
+    color: yellow;
+}
+
+
+
+.Hero{
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   transform: translateX(-50%);
+   text-align: center;
+   color: white;
+   
+}
+
+
+.Hero h1{
+
+font-size: 3rem;
+font-weight: bold;
+text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+
+
+}
+
+.Hero p{
+
+font-weight: bold;
+text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+
+
+
+}
+
+.Hero-background{
+    position: relative;
+}
+
+.ero-background::after{
+
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+
+}
+
+.herobuttons{
+
+margin-top: 20px;
+display: flex;
+justify-content: center;
+gap: 14px;
+flex-wrap: wrap;
+}
+
+
+.herobuttons a{
+display: inline-block;
+
+padding: 12px 24px;
+margin: 0 8px;
+border-radius: 6px;
+font-weight: bold;
+text-decoration: none;
+transition: all 0.3s ease;
+
+}
+
+
+.btn-primary{
+background-color: rgba(54, 33, 33, 0.575);
+color: white;
+transform: scale(1);
+transition: transform 0.3s ease;
+
+}
+
+.btn-primary:hover {
+    background-color: #070301;
+    transform: scale(1.2);
+}
+
+.btn-Secondary{
+
+background-color: rgba(54, 33, 33, 0.575);
+color: white;
+transform: scale(1);
+transition: transform 0.3s ease;
+
+
+
+}
+
+.btn-Secondary:hover {
+    background-color: #070301;
+    transform: scale(1.2);
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;      /* link alt çizgisi yok */
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease, color .2s ease;
+  border: 1px solid transparent;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+
+.btn:active{ transform: translateY(1px); }   /* tıklama hissi */
+.btn:focus{ outline: none; box-shadow: 0 0 0 3px rgba(255,102,0,.25); }
+
+
+.Logo{
+display: flex;
+align-items: center;
+gap: 10px;
+
+
+}
+
+.Logo img{
+    width: auto;
+height: 40px;
+margin-left: 10px;
+
+
+}
+
+.Logo-Text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+
+.searchbar {
+    justify-self: center; /* Ortalar */
+}
+.searchbar form {
+    display: flex;
+}
+.searchbar input {
+    padding: 6px 10px;
+    border-radius: 5px 0 0 5px;
+    border: none;
+}
+.searchbar button {
+    padding: 6px 10px;
+    border: none;
+    background-color: orange;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+/* Menü */
+.Menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+}
+.Menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.hakkinda{
+
+
+
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+font-size:  20px;
+   position: absolute;
+   top: 20%;
+   left: 50%;
+   transform: translateX(-50%);
+   text-align: center;
+   color: white;
+
+}
+
+.hakkinda h2{
+font-size: 2rem;
+  margin-bottom: 15px;
+   color: white;
+
+
+
+
+}
+
+.hakkinda ul{
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+
+.hakkinda ul li{
+      margin: 8px 0;
+  font-weight: 500;
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f6fa;
+}
+
+/* Kapak resmi */
+.cover {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.cover h1 {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  color: white;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+/* İçerik alanı */
+.content {
+  display: flex;
+  max-width: 1100px;
+  margin: 30px auto;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+/* Sol kısım */
+.left {
+  width: 300px;
+}
+
+.left img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-bottom: 15px;
+}
+
+.left h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+/* Sağ kısım */
+.right {
+  flex: 1;
+}
+
+.rating .stars {
+  font-size: 2rem;
+  color: gold;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* Yorumlar */
+.comments {
+  margin-top: 30px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.comment-form button {
+  background: #3498db;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background: #217dbb;
+}
+
+.comment {
+  background: #fff;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
