@@ -283,6 +283,14 @@ transition: transform .35 ease;
 z-index: 1;
 }
 
+#noResults{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.945);
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
 .kesfetkart:hover .info{transform: translateY(0);}
 
 .kesfetkart .info h4{margin: 0 0 4px; font-size: 1.05rem;}

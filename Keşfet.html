@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keşfet</title>
-    <link rel="stylesheet" href="/Tourismd/Tourismd/CSS/Keşfet.css">
+    <link rel="stylesheet" href="/Tourismd/CSS/Keşfet.css">
 <body>
 
- <img src="/Tourismd/Tourismd/Fotoğraflar/Miami.jpg" class="Arkaplan">
+ <img src="/Tourismd/Fotoğraflar/Miami.jpg" class="Arkaplan">
 
 
 
@@ -20,7 +20,7 @@
     <div class="Navbar">
     <!-- Sol: Logo -->
     <div class="Logo">        
-        <img src="/Tourismd/Tourismd/Fotoğraflar/Logo.jpg">
+        <img src="/Tourismd/Fotoğraflar/LogoV2.png">
         <span class="Logo-Text">Tourismd</span>
        
     </div>
@@ -28,7 +28,7 @@
     <!-- Orta: Arama -->
     <div class="searchbar">
         <form role="search" action="#">
-            <input type="search" placeholder="şehir veya mekan ara.">
+            <input type="search" placeholder="şehir veya mekan ara." id="searchInput">
             <button type="submit">Ara</button>
         </form>
     </div>
@@ -51,109 +51,15 @@
 <button>Bu Ay</button>
 <button>Bu Hafta</button>
  </div>
-<main class="Kartlar">
-
- <div class="kesfetkart">
-  <a href="/Tourismd/Tourismd/Japonya.html">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Tokyo.jpg">
-    <div class="info">
-      <h4>Tokyo</h4>
-      <p>Tokyo, Japonya</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-    </a>
-  </div>
 
 
+<p id="noResults"></p>
 
- <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Machu Picchu.jpg">
-    <div class="info">
-      <h4>Machu Picchu</h4>
-      <p>Machu Pichhu, Peru</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
+<main class="Kartlar" id="placesContainer"></main>
+
+<script src="/Tourismd/JS/data.js"></script>
+<script src="/Tourismd/JS/Keşfet.js"></script>
 
 
-
- <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Venedik.jpg">
-    <div class="info">
-      <h4>Venedik</h4>
-      <p>Venedik, İtalya</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Dubai.jpg">
-    <div class="info">
-      <h4>Dubai</h4>
-      <p>Dubai, BAE</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Vegas.jpg">
-    <div class="info">
-      <h4>Las Vegas</h4>
-      <p>Nevada, ABD</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Barcelona.jpg">
-    <div class="info">
-      <h4>Barcelona</h4>
-      <p>Barcelona, İspanya</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/kapadokya.jpg">
-    <div class="info">
-      <h4>Kapadokya</h4>
-      <p>Nevşehir, Türkiye</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/santorini.jpg">
-    <div class="info">
-      <h4>Santorini</h4>
-      <p>Santorini, Yunanistan</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/bali.jpg">
-    <div class="info">
-      <h4>Bali</h4>
-      <p>Denpasar, Endonezya</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
-  <div class="kesfetkart">
-    <img src="/Tourismd/Tourismd/Fotoğraflar/Paris.jpg">
-    <div class="info">
-      <h4>Paris</h4>
-      <p>Paris, Fransa</p>
-      <div class="stars">★★★★☆</div>
-    </div>
-  </div>
-
- 
-
-</main>
 </body>
 </html>

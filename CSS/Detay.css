@@ -1,0 +1,160 @@
+body {
+  background: #0f1117;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.detail-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.hero {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  
+  
+}
+
+.hero-left{
+    width:400px;
+    margin-left: -150px;
+   
+}
+
+.about{
+  flex: 1;
+  min-height: 260px;
+  padding-top: 55px;
+
+}
+
+.about p{
+    font-size:18px;
+    font-weight:400;
+    line-height:1.6;
+     
+    
+}
+
+.hero-info{
+display: flex;
+flex-direction: column;
+gap: 1px;
+}
+
+.hero-image img {
+  width: 380px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-right: 50px;
+  
+}
+
+.hero-info h1 {
+  font-size: 42px;
+  margin-bottom: 0px;
+}
+
+.hero-info p {
+  font-size: 18px;
+  margin-bottom: 0px;
+}
+
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: auto;
+  width: 220px;
+   padding-top: 55px;
+}
+
+.user-actions button {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+ 
+
+
+  background:#1d2430;
+  color:white;
+  border:1px solid #30363d;
+  border-radius:10px;
+  padding:12px 16px;
+  cursor:pointer;
+}
+
+.must-visit{
+       margin-top: 0px;
+}
+
+.must-visit-card{
+    width:250px;
+    background:#1d2430;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.must-visit-card img{
+    width:100%;
+    height:170px;
+    object-fit:cover;
+}
+
+.must-visit-card h3{
+    padding:12px;
+    margin:0;
+}
+
+.must-visit-card p{
+    padding:0 12px 12px;
+    margin:0;
+}
+
+.must-visit button{
+
+ margin-left: auto;
+    display: block;
+
+    background:#1d2430;
+    color:white;
+    border:1px solid #30363d;
+    border-radius:1px;
+    padding:12px 16px;
+    cursor:pointer;
+    font-weight:bold;
+    width:100px;
+    text-align:left;
+}
+
+.must-visit-container{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.detail-tabs{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+
+.detail-tabs button{
+  background:#1d2430;
+  color:white;
+  border:1px solid #30363d;
+  border-radius:10px;
+  padding:12px 18px;
+  cursor:pointer;
+  font-weight:bold;
+}
