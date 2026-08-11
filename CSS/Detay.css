@@ -1,3 +1,70 @@
+
+.Navbar{
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 50px;
+    box-sizing: border-box;
+
+    background: #0f1117;;
+    border-bottom: 1px solid #202631;
+}
+
+/* Logo */
+
+.Logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    text-decoration: none;
+    color: white;
+}
+
+.Logo img{
+    width: 74px;
+    height: 74px;
+    object-fit: contain;
+}
+
+.Logo-Text{
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+
+.Menu{
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.Menu a{
+    color: #c7cbd3;
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.Menu a:hover{
+    color: white;
+}
+
+
 body {
   background: #0f1117;
   color: white;
@@ -157,4 +224,37 @@ gap: 1px;
   padding:12px 18px;
   cursor:pointer;
   font-weight:bold;
+}
+
+
+.filter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.filter-container{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+
+}
+
+.filter-btn{
+  background-color: #1d2430;
+  border:1px solid #30363d;
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+  
+
+}
+
+.breadcrumb a{
+ 
+  list-style: none;
+  text-decoration: none;
+  color: white;
 }

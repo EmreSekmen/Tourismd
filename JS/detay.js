@@ -1,3 +1,5 @@
+let activeTab = null
+
 const heroTitle = document.querySelector(".hero-title");
 const heroImage = document.querySelector(".hero-image");
 const heroInfo = document.querySelector(".hero-info");
@@ -16,6 +18,12 @@ const recentLogBtn = document.querySelector("#recentLogsBtn")
 const params = new URLSearchParams(window.location.search)
 const placeDetails = document.querySelector("#placeDetails")
 
+const breadcrumb = document.querySelector(".breadcrumb")
+
+
+const filterBtn = document.querySelector("#filterBtn")
+const filterContainer = document.querySelector(".filter-container")
+
 const placeId = Number(params.get("id"))
 
 const foundPlaces = places.find(place => {
@@ -24,6 +32,8 @@ const foundPlaces = places.find(place => {
 
 console.log(placeId)
 console.log(foundPlaces)
+
+let favorites = JSON.parse(localStorage.getItem("favorites")) || []
 
 function renderDetails(place) {
 
@@ -88,14 +98,64 @@ function renderDetails(place) {
 
 
 
+
+
+
+
+    favoriteBtn.addEventListener("click", () => {
+
+        const isAlreadyFavorited = favorites.some(favorite => {
+            return favorite.id === place.id
+        })
+
+        if(isAlreadyFavorited){
+            favoriteBtn.textContent = "✅ Favorited"
+        }
+
+        if (isAlreadyFavorited !== true) {
+            favorites.push(place)
+
+
+            
+            console.log(isAlreadyFavorited)
+
+            localStorage.setItem("favorites", JSON.stringify(favorites))
+
+            console.log(favorites)
+
+            localStorage.getItem("favorites")
+            JSON.parse(localStorage.getItem("favorites"))
+        }
+
+
+    })
+
 }
 
 
 
-function renderMustVisit(cityId) {
+function renderMustVisit(cityId, category = "All") {
+
+    mustVisitContainer.innerHTML = "";
+
     const placesInCity = places.filter(place => {
-        return place.parentId === cityId
+        const sameCity = place.parentId === cityId
+
+        if (category === "All") {
+            return sameCity
+        }
+
+        return (
+            sameCity &&
+            place.category.toLowerCase() === category.toLowerCase()
+        );
+
+
     })
+
+
+
+
 
     placesInCity.forEach(place => {
 
@@ -117,78 +177,163 @@ function renderMustVisit(cityId) {
 
         mustVisitContainer.appendChild(card);
 
+        card.addEventListener("click", () => {
+            window.location.href = `Detay.html?id=${place.id}`
+        })
+
 
     })
+
+
 
 }
 
 
-let isMustvisitOpen = false;
-mustVisitBtn.addEventListener("click", () => {
-    if (isMustvisitOpen) {
-        mustVisitContainer.innerHTML = ""
-        isMustvisitOpen = false;
-    }
-    else {
-        recentLogContainer.innerHTML = "";
-        isRecentLogOpen = false;
 
-        renderMustVisit(foundPlaces.id)
-        isMustvisitOpen = true;
+mustVisitBtn.addEventListener("click", () => {
+    if (activeTab === "mustVisit") {
+        closeAllTabs();
+        return;
     }
+
+    closeAllTabs();
+    renderMustVisit(foundPlaces.id);
+    activeTab = "mustVisit";
 })
 
 function renderRecentLogs(placeId) {
     const logsForPlace = logs.filter(log => {
         return log.placeId === placeId
-        })
+    })
 
-      logsForPlace.forEach(log => {
-         const card = document.createElement("div")
-            card.classList.add("log-card")
+    logsForPlace.forEach(log => {
+        const card = document.createElement("div")
+        card.classList.add("log-card")
 
-            const user = document.createElement("h1")
-            user.textContent = log.user
+        const user = document.createElement("h1")
+        user.textContent = log.user
 
-            const rating = document.createElement("p")
-            rating.textContent = log.rating
+        const rating = document.createElement("p")
+        rating.textContent = log.rating
 
-            const review = document.createElement("p")
-            review.textContent = log.review
+        const review = document.createElement("p")
+        review.textContent = log.review
 
-            const date = document.createElement("small")
-            date.textContent = log.date
+        const date = document.createElement("small")
+        date.textContent = log.date
 
-         
-            card.appendChild(user);
-            card.appendChild(rating);
-            card.appendChild(review);
-            card.appendChild(date);
 
-           recentLogContainer.appendChild(card)
-      })
+        card.appendChild(user);
+        card.appendChild(rating);
+        card.appendChild(review);
+        card.appendChild(date);
+
+        recentLogContainer.appendChild(card)
+    })
 }
 
 let isRecentLogOpen = false
 
 recentLogBtn.addEventListener("click", () => {
-        if(isRecentLogOpen){
-            recentLogContainer.innerHTML = ""
-            isRecentLogOpen = false
-           
-        }
-        else{
+    if (activeTab === "recentLogs") {
+        closeAllTabs();
+        return;
+    }
 
-             mustVisitContainer.innerHTML = "";
-             isMustVisitOpen = false;
-
-            renderRecentLogs(foundPlaces.id)
-            isRecentLogOpen = true
-            i
-        }
+    closeAllTabs();
+    renderRecentLogs(foundPlaces.id);
+    activeTab = "recentLogs";
 })
 
 
 
 renderDetails(foundPlaces)
+
+
+if (foundPlaces.type !== "city") {
+    mustVisitBtn.style.display = "none"
+    filterBtn.style.display = "none"
+}
+
+
+
+function renderFilter() {
+    filterContainer.innerHTML = ""
+
+    const categories = [
+        "All",
+        "Landmark",
+        "Nature",
+        "Food",
+        "Shopping",
+        "Beach",
+    ]
+
+    categories.forEach(category => {
+        const button = document.createElement("button")
+        button.classList.add("filter-btn");
+        button.textContent = category;
+
+
+
+        button.addEventListener("click", () => {
+            renderMustVisit(foundPlaces.id, category)
+        })
+
+
+        filterContainer.appendChild(button)
+    })
+
+
+}
+
+filterBtn.addEventListener("click", () => {
+
+
+    if (activeTab === "filter") {
+        closeAllTabs();
+        return;
+    }
+
+    closeAllTabs();
+    renderFilter();
+    activeTab = "filter";
+
+})
+
+
+
+function closeAllTabs() {
+    mustVisitContainer.innerHTML = ""
+    recentLogContainer.innerHTML = ""
+    filterContainer.innerHTML = ""
+
+    activeTab = null
+}
+
+
+
+const parentPlaces = places.find(place => {
+    return place.id === foundPlaces.parentId;
+
+
+})
+
+console.log(parentPlaces)
+
+if (parentPlaces) {
+
+    const parentLink = document.createElement("a")
+    parentLink.textContent = parentPlaces.name
+    parentLink.href = `Detay.html?id=${parentPlaces.id}`
+
+
+    const currentPlaces = document.createElement("span")
+    currentPlaces.textContent = ` > ${foundPlaces.name}`;
+
+
+    breadcrumb.append(parentLink)
+    breadcrumb.append(currentPlaces)
+}
+
 

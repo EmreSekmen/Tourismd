@@ -6,6 +6,7 @@ const places = [
         image: "/Fotoğraflar/Tokyo.jpg",
         rating: "★★★★☆",
         category: "metropolis",
+        type: "city",
         description: "Tokyo is the vibrant capital of Japan, where futuristic skyscrapers meet ancient temples. From world-famous districts like Shibuya and Akihabara to peaceful gardens and incredible cuisine, Tokyo offers an unforgettable travel experience."
     },
     {
@@ -15,6 +16,7 @@ const places = [
         image: "/Fotoğraflar/Miami.jpg",
         rating: "★★★★☆",
         category: "beach",
+        type: "city",
         description: "Miami is a vibrant coastal city known for its sunny beaches, colorful nightlife, and Art Deco architecture. Whether you're relaxing by the ocean or exploring Little Havana, Miami has something for every traveler."
     },
     {
@@ -24,6 +26,7 @@ const places = [
         image: "/Fotoğraflar/Zonguldak.jpg",
         rating: "★★★★☆",
         category: "nature",
+        type: "city",
         description: "Located on Turkey's Black Sea coast, Zonguldak is famous for its lush forests, dramatic cliffs, and rich mining history. It's a peaceful destination for travelers who enjoy nature and coastal scenery."
     },
     {
@@ -33,6 +36,7 @@ const places = [
         image: "/Fotoğraflar/Machu Picchu.jpg",
         rating: "★★★★☆",
         category: "historical",
+        type: "city",
         description: "Machu Picchu is one of the world's most iconic archaeological sites, hidden high in the Andes Mountains of Peru. This ancient Inca city offers breathtaking views and an unforgettable glimpse into history."
     },
     {
@@ -42,6 +46,7 @@ const places = [
         image: "/Fotoğraflar/Paris.jpg",
         rating: "★★★★☆",
         category: "romantic",
+        type: "city",
         description: "Paris, the capital of France, is celebrated for its art, fashion, architecture, and romantic atmosphere. From the Eiffel Tower to charming cafés, every street has a story to tell."
     },
     {
@@ -51,6 +56,7 @@ const places = [
         image: "/Fotoğraflar/Vegas.jpg",
         rating: "★★★★☆",
         category: "nightlife",
+        type: "city",
         description: "Las Vegas is the entertainment capital of the world, famous for its luxury resorts, casinos, spectacular shows, and vibrant nightlife. Beyond the Strip, you'll also find unique desert landscapes nearby."
 
     },
@@ -61,6 +67,7 @@ const places = [
         image: "/Fotoğraflar/Venedik.jpg",
         rating: "★★★★☆",
         category: "romantic",
+        type: "city",
         description: "Venice is a unique Italian city built on canals instead of roads. Gondola rides, historic bridges, and beautiful architecture make Venice one of the world's most memorable destinations."
 
 
@@ -72,6 +79,7 @@ const places = [
         image: "/Fotoğraflar/santorini.jpg",
         rating: "★★★★☆",
         category: "Island",
+        type: "city",
         description: "Santorini is a stunning Greek island known for its whitewashed houses, blue-domed churches, and breathtaking sunsets. It is one of the most photographed destinations in the world."
 
     },
@@ -82,6 +90,7 @@ const places = [
         image: "/Fotoğraflar/Athens.jpg",
         rating: "★★★★☆",
         category: "historical",
+        type: "city",
         description: "Athens is the historic capital of Greece and the birthplace of democracy. Ancient landmarks like the Acropolis stand alongside lively neighborhoods filled with cafés, restaurants, and local culture."
 
     },
@@ -92,6 +101,7 @@ const places = [
         image: "/Fotoğraflar/Crete.jpg",
         rating: "★★★★☆",
         category: "Island",
+        type: "city",
         description: "Crete is the largest Greek island, offering beautiful beaches, ancient ruins, and picturesque mountain villages. It combines rich history with Mediterranean charm."
 
     },
@@ -102,6 +112,7 @@ const places = [
         image: "/Fotoğraflar/Rhodes.jpg",
         rating: "★★★★☆",
         category: "Island",
+        type: "city",
         description: "Rhodes is a beautiful Greek island famous for its medieval Old Town, crystal-clear waters, and sunny coastline. Visitors can enjoy both historical landmarks and relaxing beach holidays."
 
     },
@@ -112,6 +123,7 @@ const places = [
         image: "/Fotoğraflar/Ankara.jpg",
         rating: "★★★★☆",
         category: "metropolis",
+        type: "city",
         description: "Ankara is the capital of Turkey, blending modern city life with centuries of history. From Anıtkabir to museums and vibrant cultural districts, Ankara offers a unique perspective on the country's heritage."
         
     },
@@ -121,7 +133,8 @@ const places = [
         location: "Tokyo, Japan",
         image: "/Fotoğraflar/Shibuya.jpg",
         rating: "★★★★☆",
-        category: "landmark",
+        type: "landmark",
+        category: "Shopping",
         parentId: 1,
         
     },
@@ -131,7 +144,8 @@ const places = [
         location: "Tokyo, Japan",
         image: "/Fotoğraflar/TokyoTower.jpg",
         rating: "★★★★☆",
-        category: "landmark",
+        category: "Landmark",
+        type: "landmark",
         parentId: 1,
     },
     {
@@ -140,7 +154,8 @@ const places = [
       location: "Tokyo, Japan",
       image: "/Fotoğraflar/Akihabara.jpg",
       rating: "★★★★☆",
-      category: "landmark",
+      category: "Shopping",
+      type: "landmark",
       parentId: 1,
     },
     {  
@@ -150,6 +165,7 @@ const places = [
         image: "/Fotoğraflar/KafkasPide.jpg",
         rating: "★★★★☆",
         category: "landmark",
+        type: "landmark",
         parentId: 3
     },
     {
@@ -158,7 +174,8 @@ const places = [
         location: "Zonguldak, Ereğli",
         image: "/Fotoğraflar/HasanKuru.jpg",
         rating: "★★★★☆",
-        category: "landmark",
+        category: "Landmark",
+        type: "landmark",
         parentId: 3,
     },
     {
@@ -167,7 +184,8 @@ const places = [
         location: "Zonguldak, Ereğli",
         image: "/Fotoğraflar/Marina.jpg",
         rating: "★★★★☆",
-        category: "landmark",
+        category: "Landmark",
+        type: "landmark",
         parentId: 3,
     }
     
