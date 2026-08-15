@@ -34,6 +34,7 @@ console.log(placeId)
 console.log(foundPlaces)
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || []
+let wantToVisit = JSON.parse(localStorage.getItem("wanttovisit")) || []
 
 function renderDetails(place) {
 
@@ -97,6 +98,25 @@ function renderDetails(place) {
     about.appendChild(description)
 
 
+    const isFavorited = favorites.some(favorite => {
+        return favorite.id === place.id;
+    });
+
+    if (isFavorited) {
+        favoriteBtn.textContent = "✅ Favorited";
+    }
+
+    const isAlreadyInWantToVisit = wantToVisit.some(wanttovisit => {
+        return wanttovisit.id === place.id;
+    });
+
+
+    if (isAlreadyInWantToVisit) {
+        WantToVısıtBtn.textContent = "in Want to visit list"
+
+    }
+
+
 
 
 
@@ -108,27 +128,54 @@ function renderDetails(place) {
             return favorite.id === place.id
         })
 
-        if(isAlreadyFavorited){
-            favoriteBtn.textContent = "✅ Favorited"
-        }
 
-        if (isAlreadyFavorited !== true) {
+
+
+        if (!isAlreadyFavorited) {
             favorites.push(place)
+            favoriteBtn.textContent = "✅ Favorited"
 
 
-            
+
             console.log(isAlreadyFavorited)
 
             localStorage.setItem("favorites", JSON.stringify(favorites))
 
             console.log(favorites)
 
-            localStorage.getItem("favorites")
-            JSON.parse(localStorage.getItem("favorites"))
+
         }
 
 
     })
+
+
+
+    WantToVısıtBtn.addEventListener("click", () => {
+
+        const isAlreadyInWantToVisit = wantToVisit.some(wanttovisit => {
+            return wanttovisit.id === place.id;
+        });
+
+        if (!isAlreadyInWantToVisit) {
+
+            wantToVisit.push(place)
+            WantToVısıtBtn.textContent = "in Want to visit list"
+
+
+            localStorage.setItem("wanttovisit", JSON.stringify(wantToVisit))
+
+
+        }
+
+
+    })
+
+
+
+
+
+
 
 }
 
