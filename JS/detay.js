@@ -35,6 +35,10 @@ console.log(foundPlaces)
 
 let favorites = JSON.parse(localStorage.getItem("favorites")) || []
 let wantToVisit = JSON.parse(localStorage.getItem("wanttovisit")) || []
+let isİnVisited = JSON.parse(localStorage.getItem("isVisited")) || []
+let ratings = JSON.parse(localStorage.getItem("ratings")) || []
+
+
 
 function renderDetails(place) {
 
@@ -70,10 +74,59 @@ function renderDetails(place) {
     WantToVısıtBtn.textContent = "✈️ Want to visit"
 
     const visitedBtn = document.createElement("button")
-    visitedBtn.textContent = "✅ Visited"
+    visitedBtn.textContent = "❌ Visited"
 
-    const rateBtn = document.createElement("button")
-    rateBtn.textContent = "⭐⭐⭐⭐⭐"
+    const ratingContainer = document.createElement("div")
+    ratingContainer.classList.add("ratingContainer")
+
+    const ratingButtons = []
+
+
+    for (let i = 1; i <= 5; i++) {
+        const ratingButon = document.createElement("button")
+        ratingButon.textContent = "☆"
+
+        ratingContainer.appendChild(ratingButon)
+
+        ratingButtons.push(ratingButon)
+
+
+        ratingButon.addEventListener("click", () => {
+
+            ratingButtons.forEach((button, index) => {
+                if (index < i) {
+                    button.textContent = "★"
+                }
+                else {
+                    button.textContent = "☆"
+                }
+            })
+
+
+            const NewRatings = {
+                placeId: place.id,
+                rating: i
+            }
+
+            const existingRating = ratings.find(item => {
+                return item.placeId === place.id
+            })
+
+            if(existingRating){
+                existingRating.rating = i
+            }
+            else{
+                ratings.push(NewRatings)
+                
+            }
+
+
+            localStorage.setItem("ratings", JSON.stringify(ratings))
+        })
+
+    }
+
+
 
     const rewiewBtn = document.createElement("button")
     rewiewBtn.textContent = "📝 Review"
@@ -84,7 +137,7 @@ function renderDetails(place) {
     userActions.appendChild(favoriteBtn)
     userActions.appendChild(WantToVısıtBtn)
     userActions.appendChild(visitedBtn)
-    userActions.appendChild(rateBtn)
+    userActions.appendChild(ratingContainer)
     userActions.appendChild(rewiewBtn)
     userActions.appendChild(addToListBtn)
 
@@ -116,6 +169,14 @@ function renderDetails(place) {
 
     }
 
+    const isVisited = isİnVisited.some(isVisited => {
+        return isVisited.id === place.id
+    })
+
+    if (isVisited) {
+        visitedBtn.textContent = "✅ Visited"
+    }
+
 
 
 
@@ -129,6 +190,14 @@ function renderDetails(place) {
         })
 
 
+        if (isAlreadyFavorited) {
+            favorites = favorites.filter(favorite => {
+                return favorite.id !== place.id
+            })
+
+            favoriteBtn.textContent = "❤️ Favorite"
+            localStorage.setItem("favorites", JSON.stringify(favorites))
+        }
 
 
         if (!isAlreadyFavorited) {
@@ -157,6 +226,15 @@ function renderDetails(place) {
             return wanttovisit.id === place.id;
         });
 
+        if (isAlreadyInWantToVisit) {
+            wantToVisit = wantToVisit.filter(wanttovisit => {
+                return wanttovisit.id !== place.id
+            })
+
+            WantToVısıtBtn.textContent = "✈️ Want to visit"
+            localStorage.setItem("wanttovisit", JSON.stringify(wantToVisit))
+        }
+
         if (!isAlreadyInWantToVisit) {
 
             wantToVisit.push(place)
@@ -169,6 +247,28 @@ function renderDetails(place) {
         }
 
 
+    })
+
+    visitedBtn.addEventListener("click", () => {
+        const isVisited = isİnVisited.some(isVisited => {
+            return isVisited.id === place.id
+        })
+
+        if (isVisited) {
+            isİnVisited = isİnVisited.filter(isVisited => {
+                return isVisited.id !== place.id
+            })
+
+            visitedBtn.textContent = "❌ Visited"
+            localStorage.setItem("isVisited", JSON.stringify(isİnVisited))
+        }
+
+        if (!isVisited) {
+            isİnVisited.push(place)
+            visitedBtn.textContent = "✅ Visited"
+
+            localStorage.setItem("isVisited", JSON.stringify(isİnVisited))
+        }
     })
 
 
