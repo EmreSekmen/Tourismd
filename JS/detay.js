@@ -82,9 +82,20 @@ function renderDetails(place) {
     const ratingButtons = []
 
 
+    const savedRating = ratings.find(item => {
+        return item.placeId === place.id
+    })
+
     for (let i = 1; i <= 5; i++) {
         const ratingButon = document.createElement("button")
-        ratingButon.textContent = "☆"
+
+        if (savedRating && i <= savedRating.rating) {
+            ratingButon.textContent = "★"
+        }
+        else {
+            ratingButon.textContent = "☆"
+
+        }
 
         ratingContainer.appendChild(ratingButon)
 
@@ -112,12 +123,12 @@ function renderDetails(place) {
                 return item.placeId === place.id
             })
 
-            if(existingRating){
+            if (existingRating) {
                 existingRating.rating = i
             }
-            else{
+            else {
                 ratings.push(NewRatings)
-                
+
             }
 
 
